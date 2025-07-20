@@ -2,8 +2,8 @@
 
 require_once './vendor/autoload.php';
 
-use Jungle\Animals\{Eagle, Lion, Sparrow , Snake , Elephant ,Frog, Bee , GoldFish};
-use Jungle\Core\Forest;
+use Jungle\Animals\{Bee, Eagle, Elephant, GoldFish, Lion, Snake, Sparrow};
+use Jungle\Core\Bioms\Forest;
 
 $forest = new Forest([
     new Lion('Simba', 5),
@@ -13,7 +13,7 @@ $forest = new Forest([
     new Elephant('Dumbo', 10),
     new Bee('Hach', 1),
     new GoldFish('Nemo', 1),
-    new Frog('Freddy', 2)
+
 ]);
 
 $forest->hearAllSounds();
