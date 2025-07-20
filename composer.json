@@ -1,0 +1,9 @@
+{
+    "name": "sazgar/jungle",
+    "autoload": {
+        "psr-4": {
+            "Jungle\\": "src/"
+        }
+    },
+    "require": {}
+}
