@@ -1,8 +1,10 @@
 <?php
 
-namespace Jungle\Core;
+namespace Jungle\Core\Bioms;
 
-readonly class Forest
+use Jungle\Core\Biom;
+
+class Ocean extends Biom
 {
     /**
      * @param Animal[] $animals
@@ -13,9 +15,9 @@ readonly class Forest
 
     public function hearAllSounds(): void
     {
-        echo PHP_EOL . "-- Hearing all animal sounds in the forest --" . PHP_EOL;
+        echo PHP_EOL . "-- Symphony of the waves: Listening to all ocean creatures --" . PHP_EOL;
         foreach ($this->animals as $animal) {
-            if (!$animal instanceof Animal) {
+            if (!$animal instanceof \Jungle\Core\Animal) {
                 throw new \InvalidArgumentException("All elements must be instances of Animal.");
             }
             echo $animal->makeSound() . PHP_EOL;
@@ -24,32 +26,30 @@ readonly class Forest
 
     public function feedAll(): void
     {
-        echo PHP_EOL . "-- Feeding all animals in the forest --" . PHP_EOL;
-
+        echo PHP_EOL . "-- Feeding frenzy: Nourishing every ocean dweller --" . PHP_EOL;
         foreach ($this->animals as $animal) {
-            if (!$animal instanceof Animal) {
+            if (!$animal instanceof \Jungle\Core\Animal) {
                 throw new \InvalidArgumentException("All elements must be instances of Animal.");
             }
             if (method_exists($animal, 'eat')) {
                 echo $animal->eat() . PHP_EOL;
             } else {
-                echo "{$animal->getName()} does not eat in this forest." . PHP_EOL;
+                echo "{$animal->getName()} doesn't eat in this ocean. Maybe it's just floating along!" . PHP_EOL;
             }
         }
     }
 
     public function watchAnimalMovement(): void
     {
-        echo PHP_EOL . "-- Watching animal movements in the forest --" . PHP_EOL;
-
+        echo PHP_EOL . "-- Underwater ballet: Watching how ocean animals move --" . PHP_EOL;
         foreach ($this->animals as $animal) {
-            if (!$animal instanceof Animal) {
+            if (!$animal instanceof \Jungle\Core\Animal) {
                 throw new \InvalidArgumentException("All elements must be instances of Animal.");
             }
             if (method_exists($animal, 'move')) {
                 echo $animal->move() . PHP_EOL;
             } else {
-                echo "{$animal->getName()} does not move in this forest." . PHP_EOL;
+                echo "{$animal->getName()} prefers to drift with the current." . PHP_EOL;
             }
         }
     }

@@ -6,29 +6,34 @@ use Jungle\Core\Animal;
 use Jungle\Enums\AnimalClass;
 use Jungle\Interfaces\MovementStrategyInterface;
 use Jungle\Movements\CrawlingMovement;
-use Jungle\Traits\HerbivoreTrait;
+use Jungle\Traits\CarnivoreTrait;
 
-class Frog extends Animal
+class Scorpion extends Animal
 {
-    use HerbivoreTrait;
-       private MovementStrategyInterface $movement;
+    use CarnivoreTrait;
+
+    /**
+     * @var MovementStrategyInterface
+     */
+    private MovementStrategyInterface $movement;
 
     public function __construct(string $name, int $age)
     {
-        parent::__construct($name, $age, AnimalClass::AMPHIBIAN);
+        parent::__construct($name, $age, AnimalClass::ARACHNID);
         $this->movement = new CrawlingMovement();
     }
 
     public function makeSound(): string
     {
-        return "Ribbit";
+        return $this->getName() . ': Click Click 🦂';
     }
 
     public function getSpecies(): string
     {
-        return "Frog";
+        return 'Scorpionidae';
     }
-        public function move(): string
+
+    public function move(): string
     {
         return $this->getName() . " : " . $this->movement->move();
     }
