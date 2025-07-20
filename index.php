@@ -9,7 +9,7 @@ use Jungle\Animals\{
 use Jungle\Core\Bioms\Forest;
 use Jungle\Core\Bioms\Desert;
 use Jungle\Core\Bioms\Ocean;
-
+use Jungle\Enums\AnimalClass;
 
 
 $forest = new Forest([
@@ -39,8 +39,11 @@ $ocean = new Ocean([
     new Plankton('Tiny', 1)
 ]);
 
+$forest->listAllAnimals(AnimalClass::MAMMAL);
 
+$desert->listAllAnimals(AnimalClass::REPTILE);
 
+$ocean->listAllAdultAnimals();
 
 $forest->hearAllSounds();
 $forest->feedAll();
