@@ -6,11 +6,12 @@ use Jungle\Core\Biom;
 
 class Ocean extends Biom
 {
+    protected string $name = 'Ocean';
     /**
      * @param Animal[] $animals
      */
     public function __construct(
-        private array $animals = [],
+        protected array $animals = [],
     ) {}
 
     public function hearAllSounds(): void

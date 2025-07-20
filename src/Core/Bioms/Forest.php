@@ -7,11 +7,12 @@ namespace Jungle\Core\Bioms;
 
  class Forest extends Biom
 {
+    protected string $name = 'Forest';
     /**
      * @param Animal[] $animals
      */
     public function __construct(
-        private array $animals = [],
+        protected array $animals = [],
     ) {}
 
     public function hearAllSounds(): void
