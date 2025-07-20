@@ -5,30 +5,35 @@ namespace Jungle\Animals;
 use Jungle\Core\Animal;
 use Jungle\Enums\AnimalClass;
 use Jungle\Interfaces\MovementStrategyInterface;
-use Jungle\Movements\CrawlingMovement;
+use Jungle\Movements\WalkingMovement;
 use Jungle\Traits\HerbivoreTrait;
 
-class Frog extends Animal
+class Camel extends Animal
 {
     use HerbivoreTrait;
-       private MovementStrategyInterface $movement;
+
+    /**
+     * @var MovementStrategyInterface
+     */
+    private MovementStrategyInterface $movement;
 
     public function __construct(string $name, int $age)
     {
-        parent::__construct($name, $age, AnimalClass::AMPHIBIAN);
-        $this->movement = new CrawlingMovement();
+        parent::__construct($name, $age, AnimalClass::MAMMAL);
+        $this->movement = new WalkingMovement();
     }
 
     public function makeSound(): string
     {
-        return "Ribbit";
+        return $this->getName() . ': Grunt Grunt 🐪';
     }
 
     public function getSpecies(): string
     {
-        return "Frog";
+        return 'Camelus';
     }
-        public function move(): string
+
+    public function move(): string
     {
         return $this->getName() . " : " . $this->movement->move();
     }
