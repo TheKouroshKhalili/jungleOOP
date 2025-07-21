@@ -8,7 +8,7 @@ use Jungle\Interfaces\MovementStrategyInterface;
 use Jungle\Movements\RunningMovement;
 use Jungle\Traits\HerbivoreTrait;
 
-class Jerboa extends Animal
+class Jerboa extends Animal implements \Jungle\Interfaces\desertFriendly
 {
     use HerbivoreTrait;
 

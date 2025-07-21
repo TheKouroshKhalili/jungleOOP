@@ -8,7 +8,7 @@ use Jungle\Interfaces\MovementStrategyInterface;
 use Jungle\Movements\DriftMovement;
 use Jungle\Traits\HerbivoreTrait;
 
-class Plankton extends Animal
+class Plankton extends Animal implements \Jungle\Interfaces\oceanFriendly
 {
     use HerbivoreTrait;
     

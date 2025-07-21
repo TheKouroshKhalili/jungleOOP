@@ -2,38 +2,24 @@
 
 namespace Jungle\Core\Bioms;
 
+use Exception;
 use Jungle\Core\Biom;
 
 use Jungle\Animals\{
     Bee, Eagle, Elephant, Frog, GoldFish, Lion, Snake, Sparrow, Spider,
     Octopus, Shark, Plankton, Camel, Scorpion, Jerboa
 };
+use Jungle\Interfaces\oceanFriendly;
+
 class Ocean extends Biom
 {
     protected string $name = 'Ocean';
-    /**
-     * @param Animal[] $animals
-     */
-<<<<<<< Updated upstream
-    public function __construct(
-        protected array $animals = [],
-    ) {}
-=======
  public function __construct(
         protected array $animals = [],
     ) {
-        $this->existingAnimals = [
-    new GoldFish('Goldie', 1),
-    new Octopus('Inky', 2),
-    new Shark('Jaws', 6),
-    new Plankton('Tiny', 1)
-        ];
-
-        // Only keep animals that match existingAnimals by class and species
-        $this->animals = $this->filterAllowedAnimals($this->animals, $this->existingAnimals);
+        $this->animals = $this->Supports($this->animals);
     }
 
->>>>>>> Stashed changes
 
     public function hearAllSounds(): void
     {
@@ -74,5 +60,16 @@ class Ocean extends Biom
                 echo "{$animal->getName()} prefers to drift with the current." . PHP_EOL;
             }
         }
+    }
+        protected function Supports(array $inputAnimals): array
+    {
+        $filtered = [];
+        foreach ($inputAnimals as $animal) {
+            if (! $animal instanceof oceanFriendly) {
+                throw new Exception("این حیوون اقیانوسی نیست");
+            }
+            $filtered[] = $animal;
+        }
+        return $filtered;
     }
 }

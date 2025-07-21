@@ -9,7 +9,7 @@ use Jungle\Interfaces\MovementStrategyInterface;
 use Jungle\Movements\FlyingMovement;
 use Jungle\Traits\CarnivoreTrait;
 
-class Eagle extends Animal
+class Eagle extends Animal implements \Jungle\Interfaces\forestFriendly
 {
         use CarnivoreTrait;
 

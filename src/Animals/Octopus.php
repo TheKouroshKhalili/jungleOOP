@@ -8,7 +8,7 @@ use Jungle\Interfaces\MovementStrategyInterface;
 use Jungle\Movements\InkJetMovement;
 use Jungle\Traits\CarnivoreTrait;
 
-class Octopus extends Animal
+class Octopus extends Animal implements \Jungle\Interfaces\oceanFriendly
 {
 
     use CarnivoreTrait;

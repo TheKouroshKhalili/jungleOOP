@@ -8,7 +8,7 @@ use Jungle\Interfaces\MovementStrategyInterface;
 use Jungle\Movements\CrawlingMovement;
 use Jungle\Traits\HerbivoreTrait;
 
-class Frog extends Animal
+class Frog extends Animal implements \Jungle\Interfaces\forestFriendly
 {
     use HerbivoreTrait;
        private MovementStrategyInterface $movement;

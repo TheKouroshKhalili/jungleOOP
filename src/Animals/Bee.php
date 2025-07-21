@@ -9,7 +9,7 @@ use Jungle\Movements\FlyingMovement;
 use Jungle\Traits\CarnivoreTrait;
 use Jungle\Traits\HerbivoreTrait;
 
-class Bee extends Animal
+class Bee extends Animal implements \Jungle\Interfaces\forestFriendly
 {
     use HerbivoreTrait;
 

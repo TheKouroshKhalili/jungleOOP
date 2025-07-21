@@ -8,7 +8,7 @@ use Jungle\Interfaces\MovementStrategyInterface;
 use Jungle\Movements\FlyingMovement;
 use Jungle\Traits\HerbivoreTrait;
 
-class Sparrow extends Animal
+class Sparrow extends Animal implements \Jungle\Interfaces\forestFriendly
 {
     use HerbivoreTrait;
 

@@ -2,46 +2,31 @@
 
 namespace Jungle\Core\Bioms;
 
- use Jungle\Core\Biom;
+use Exception;
+use Jungle\Core\Biom;
  use Jungle\Core\Animal;
 
 use Jungle\Animals\{
     Bee, Eagle, Elephant, Frog, GoldFish, Lion, Snake, Sparrow, Spider,
     Octopus, Shark, Plankton, Camel, Scorpion, Jerboa
 };
+use Jungle\Interfaces\ForestFriendly;
+
  class Forest extends Biom
 {
 
     protected string $name = 'Forest';
-
-    /**
-     * @param Animal[] $animals
-     */
-    public function __construct(
-        protected array $animals = [],
-    ) {}
-
-    protected string $name = 'Forest';
-      protected array $existingAnimals = [];
+    protected array $existingAnimals = [];
     /**
      * @param Animal[] $animals
      */
  public function __construct(
         protected array $animals = [],
     ) {
-        $this->existingAnimals = [
-         new Lion('Simba', 5),
-    new Sparrow('Jack', 2),
-    new Elephant('Dumbo', 10),
-    new Bee('Hach', 1),
-    new Frog('Freddy', 2),
-    new Eagle('Sky', 4),
-    new Spider('Webby', 1)
-        ];
 
-        // Only keep animals that match existingAnimals by class and species
-        $this->animals = $this->filterAllowedAnimals($this->animals, $this->existingAnimals);
+        $this->animals = $this->Supports($this->animals);
     }
+
 
     public function hearAllSounds(): void
     {
@@ -84,5 +69,16 @@ use Jungle\Animals\{
                 echo "{$animal->getName()} does not move in this forest." . PHP_EOL;
             }
         }
+    }
+       protected function Supports(array $inputAnimals): array
+    {
+        $filtered = [];
+        foreach ($inputAnimals as $animal) {
+            if (! $animal instanceof ForestFriendly) {
+                throw new Exception("این حیوون جنگلی نیست");
+            }
+            $filtered[] = $animal;
+        }
+        return $filtered;
     }
 }

@@ -2,27 +2,22 @@
 
 namespace Jungle\Core\Bioms;
 
+use Exception;
 use Jungle\Animals\Camel;
 use Jungle\Animals\Jerboa;
 use Jungle\Animals\Scorpion;
 use Jungle\Animals\Snake;
+use Jungle\Core\Animal;
 use Jungle\Core\Biom;
+use Jungle\Interfaces\DesertFriendly;
 
 class Desert extends Biom
 {
 
-
     protected string $name = 'Desert';
     protected array $existingAnimals = [];
 
-    /**
-     * @param Animal[] $animals
-     */
     public function __construct(
-
-        protected array $animals = [],
-
-    ) {}
 
         protected array $animals = [],
     ) {
@@ -33,7 +28,7 @@ class Desert extends Biom
             new Jerboa('Jump', 1)
         ];
 
-        $this->animals = $this->filterAllowedAnimals($this->animals, $this->existingAnimals);
+        $this->animals = $this->Supports($this->animals);
     }
 
     public function hearAllSounds(): void
@@ -75,5 +70,16 @@ class Desert extends Biom
                 echo "{$animal->getName()} prefers to stay still under the desert sun." . PHP_EOL;
             }
         }
+    }
+    protected function Supports(array $inputAnimals): array
+    {
+        $filtered = [];
+        foreach ($inputAnimals as $animal) {
+            if (! $animal instanceof DesertFriendly) {
+                throw new Exception("این حیوون صحرایی نیست");
+            }
+            $filtered[] = $animal;
+        }
+        return $filtered;
     }
 }

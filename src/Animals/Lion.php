@@ -8,7 +8,7 @@ use Jungle\Interfaces\MovementStrategyInterface;
 use Jungle\Movements\RunningMovement;
 use Jungle\Traits\CarnivoreTrait;
 
-class Lion extends Animal
+class Lion extends Animal implements \Jungle\Interfaces\forestFriendly
 {
     use CarnivoreTrait;
 
