@@ -8,7 +8,7 @@ use Jungle\Interfaces\MovementStrategyInterface;
 use Jungle\Movements\WalkingMovement;
 use Jungle\Traits\HerbivoreTrait;
 
-class Elephant extends Animal
+class Elephant extends Animal implements \Jungle\Interfaces\forestFriendly
 {
     use HerbivoreTrait;
 

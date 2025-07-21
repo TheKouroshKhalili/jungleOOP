@@ -8,7 +8,7 @@ use Jungle\Interfaces\MovementStrategyInterface;
 use Jungle\Movements\SwimmingMovement;
 use Jungle\Traits\HerbivoreTrait;
 
-class GoldFish extends Animal
+class GoldFish extends Animal implements \Jungle\Interfaces\oceanFriendly
 {
     use HerbivoreTrait;
           public MovementStrategyInterface $movement;

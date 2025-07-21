@@ -8,7 +8,7 @@ use Jungle\Interfaces\MovementStrategyInterface;
 use Jungle\Movements\WebCrawlingMovement;
 use Jungle\Traits\CarnivoreTrait;
 
-class Spider extends Animal
+class Spider extends Animal implements \Jungle\Interfaces\forestFriendly
 {
     use CarnivoreTrait;
     private MovementStrategyInterface $movement;

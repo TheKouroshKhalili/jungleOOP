@@ -8,7 +8,7 @@ use Jungle\Interfaces\MovementStrategyInterface;
 use Jungle\Movements\PredatorySwimMovement;
 use Jungle\Traits\CarnivoreTrait;
 
-class Shark extends Animal
+class Shark extends Animal implements \Jungle\Interfaces\oceanFriendly
 {
     use CarnivoreTrait;
     

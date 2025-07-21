@@ -9,7 +9,7 @@ use Jungle\Interfaces\MovementStrategyInterface;
 use Jungle\Movements\CrawlingMovement;
 use Jungle\Traits\CarnivoreTrait;
 
-class Snake extends Animal {
+class Snake extends Animal implements \Jungle\Interfaces\desertFriendly {
     use CarnivoreTrait;
 
     /**

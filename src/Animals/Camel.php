@@ -8,7 +8,7 @@ use Jungle\Interfaces\MovementStrategyInterface;
 use Jungle\Movements\WalkingMovement;
 use Jungle\Traits\HerbivoreTrait;
 
-class Camel extends Animal
+class Camel extends Animal implements \Jungle\Interfaces\desertFriendly
 {
     use HerbivoreTrait;
 

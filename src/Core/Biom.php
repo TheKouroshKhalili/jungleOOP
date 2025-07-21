@@ -61,17 +61,6 @@ abstract class Biom
      * @param array $allowedAnimals
      * @return array
      */
-    protected function filterAllowedAnimals(array $inputAnimals, array $allowedAnimals): array
-    {
-        $filtered = [];
-        foreach ($inputAnimals as $animal) {
-            foreach ($allowedAnimals as $allowed) {
-                if (get_class($animal) === get_class($allowed) && $animal->getSpecies() === $allowed->getSpecies()) {
-                    $filtered[] = $animal;
-                    break;
-                }
-            }
-        }
-        return $filtered;
-    }
+  
 
+}
