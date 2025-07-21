@@ -32,7 +32,7 @@ class Snake extends Animal implements \Jungle\Interfaces\desertFriendly {
 
     public function getSpecies(): string
     {
-        return 'Serpentes';
+        return 'Snake';
     }
 
     public function move(): string

@@ -30,7 +30,7 @@ class Camel extends Animal implements \Jungle\Interfaces\desertFriendly
 
     public function getSpecies(): string
     {
-        return 'Camelus';
+        return 'Camel';
     }
 
     public function move(): string

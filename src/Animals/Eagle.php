@@ -29,7 +29,7 @@ class Eagle extends Animal implements \Jungle\Interfaces\forestFriendly
 
     public function getSpecies(): string
     {
-        return 'Bird-like';
+        return 'Eagle';
     }
    
     public function move(): string

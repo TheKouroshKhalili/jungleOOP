@@ -30,7 +30,7 @@ class Scorpion extends Animal implements \Jungle\Interfaces\desertFriendly
 
     public function getSpecies(): string
     {
-        return 'Scorpionidae';
+        return 'Scorpion';
     }
 
     public function move(): string
