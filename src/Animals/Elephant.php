@@ -28,7 +28,7 @@ class Elephant extends Animal implements \Jungle\Interfaces\forestFriendly
 
     public function getSpecies(): string
     {
-        return 'Proboscidea';
+        return 'elephant';
     }
        public function move(): string
     {
