@@ -10,12 +10,13 @@ use Jungle\Animals\{
 };
 class Ocean extends Biom
 {
+    protected string $name = 'Ocean';
     /**
      * @param Animal[] $animals
      */
 <<<<<<< Updated upstream
     public function __construct(
-        private array $animals = [],
+        protected array $animals = [],
     ) {}
 =======
  public function __construct(

@@ -19,7 +19,7 @@ class Lion extends Animal
 
     public function __construct(string $name, int $age)
     {
-        parent::__construct($name, $age, AnimalClass::REPTILE);
+        parent::__construct($name, $age, AnimalClass::MAMMAL);
         $this->movement = new RunningMovement();
     }
 
