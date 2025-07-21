@@ -9,47 +9,61 @@ use Jungle\Animals\{
 use Jungle\Core\Bioms\Forest;
 use Jungle\Core\Bioms\Desert;
 use Jungle\Core\Bioms\Ocean;
+<<<<<<< Updated upstream
+
+=======
+use Jungle\Core\ZOO;
+use Jungle\Enums\AnimalClass;
+>>>>>>> Stashed changes
 
 
-
-$forest = new Forest([
-    new Lion('Simba', 5),
-    new Sparrow('Jack', 2),
-    new Elephant('Dumbo', 10),
-    new Bee('Hach', 1),
-
-    new Frog('Freddy', 2),
-    new Eagle('Sky', 4),
-    new Spider('Webby', 1)
+// $forest = new Forest([
+//     new Lion('Simba', 5),
+//     new Sparrow('Jack', 2),
+//     new Elephant('Dumbo', 10),
+//     new Bee('Hach', 1),
+//     new Frog('Freddy', 2),
+//     new Eagle('Sky', 4),
+//     new Spider('Webby', 1)
 
 
-]);
+// ]);
 
-$desert = new Desert([
-    new Snake('Sandy', 3),
-    new Camel('Cammie', 7),
-    new Scorpion('Sting', 2),
-    new Jerboa('Jump', 1)
-]);
+// $desert = new Desert([
+//     new Snake('Sandy', 3),
+//     new Camel('Cammie', 7),
+//     new Scorpion('Sting', 2),
+//     new Jerboa('Jump', 1)
+// ]);
 
-$ocean = new Ocean([
-    new GoldFish('Goldie', 1),
-    new Octopus('Inky', 2),
-    new Shark('Jaws', 6),
-    new Plankton('Tiny', 1)
-]);
+// $ocean = new Ocean([
+//     new GoldFish('Goldie', 1),
+//     new Octopus('Inky', 2),
+//     new Shark('Jaws', 6),
+//     new Plankton('Tiny', 1)
+// ]);
+
+<<<<<<< Updated upstream
 
 
+=======
+// $forest->listAllAnimals(AnimalClass::MAMMAL);
 
+// $desert->listAllAnimals();
 
-$forest->hearAllSounds();
-$forest->feedAll();
-$forest->watchAnimalMovement();
+// $ocean->listAllAdultAnimals();
+>>>>>>> Stashed changes
 
-$desert->hearAllSounds();
-$desert->feedAll();
-$desert->watchAnimalMovement();
+// $forest->hearAllSounds();
+// $forest->feedAll();
+// $forest->watchAnimalMovement();
 
-$ocean->hearAllSounds();
-$ocean->feedAll();
-$ocean->watchAnimalMovement();
+// $desert->hearAllSounds();
+// $desert->feedAll();
+// $desert->watchAnimalMovement();
+
+// $ocean->hearAllSounds();
+// $ocean->feedAll();
+// $ocean->watchAnimalMovement();
+
+ZOO::visitTheZoo();

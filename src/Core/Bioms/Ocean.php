@@ -4,14 +4,35 @@ namespace Jungle\Core\Bioms;
 
 use Jungle\Core\Biom;
 
+use Jungle\Animals\{
+    Bee, Eagle, Elephant, Frog, GoldFish, Lion, Snake, Sparrow, Spider,
+    Octopus, Shark, Plankton, Camel, Scorpion, Jerboa
+};
 class Ocean extends Biom
 {
     /**
      * @param Animal[] $animals
      */
+<<<<<<< Updated upstream
     public function __construct(
         private array $animals = [],
     ) {}
+=======
+ public function __construct(
+        protected array $animals = [],
+    ) {
+        $this->existingAnimals = [
+    new GoldFish('Goldie', 1),
+    new Octopus('Inky', 2),
+    new Shark('Jaws', 6),
+    new Plankton('Tiny', 1)
+        ];
+
+        // Only keep animals that match existingAnimals by class and species
+        $this->animals = $this->filterAllowedAnimals($this->animals, $this->existingAnimals);
+    }
+
+>>>>>>> Stashed changes
 
     public function hearAllSounds(): void
     {

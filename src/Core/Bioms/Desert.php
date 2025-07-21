@@ -2,16 +2,40 @@
 
 namespace Jungle\Core\Bioms;
 
+use Jungle\Animals\Camel;
+use Jungle\Animals\Jerboa;
+use Jungle\Animals\Scorpion;
+use Jungle\Animals\Snake;
 use Jungle\Core\Biom;
 
 class Desert extends Biom
 {
+<<<<<<< Updated upstream
+=======
+
+    protected string $name = 'Desert';
+    protected array $existingAnimals = [];
+>>>>>>> Stashed changes
     /**
      * @param Animal[] $animals
      */
     public function __construct(
+<<<<<<< Updated upstream
         private array $animals = [],
     ) {}
+=======
+        protected array $animals = [],
+    ) {
+        $this->existingAnimals = [
+            new Snake('Sandy', 3),
+            new Camel('Cammie', 7),
+            new Scorpion('Sting', 2),
+            new Jerboa('Jump', 1)
+        ];
+
+        $this->animals = $this->filterAllowedAnimals($this->animals, $this->existingAnimals);
+    }
+>>>>>>> Stashed changes
 
     public function hearAllSounds(): void
     {

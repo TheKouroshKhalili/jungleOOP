@@ -15,7 +15,7 @@ class Jerboa extends Animal
     /**
      * @var MovementStrategyInterface
      */
-    private MovementStrategyInterface $movement;
+    public MovementStrategyInterface $movement;
 
     public function __construct(string $name, int $age)
     {

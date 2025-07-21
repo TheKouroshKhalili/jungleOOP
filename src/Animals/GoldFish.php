@@ -11,7 +11,7 @@ use Jungle\Traits\HerbivoreTrait;
 class GoldFish extends Animal
 {
     use HerbivoreTrait;
-          private MovementStrategyInterface $movement;
+          public MovementStrategyInterface $movement;
 
     public function __construct(string $name, int $age)
     {

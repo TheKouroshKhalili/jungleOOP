@@ -13,7 +13,7 @@ class Eagle extends Animal
 {
         use CarnivoreTrait;
 
-        private MovementStrategyInterface $movement;
+        public MovementStrategyInterface $movement;
 
 
          public function __construct(string $name, int $age)
