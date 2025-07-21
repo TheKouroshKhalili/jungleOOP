@@ -11,14 +11,16 @@ use Jungle\Animals\{
 };
  class Forest extends Biom
 {
-<<<<<<< Updated upstream
+
+    protected string $name = 'Forest';
+
     /**
      * @param Animal[] $animals
      */
     public function __construct(
-        private array $animals = [],
+        protected array $animals = [],
     ) {}
-=======
+
     protected string $name = 'Forest';
       protected array $existingAnimals = [];
     /**
@@ -40,7 +42,6 @@ use Jungle\Animals\{
         // Only keep animals that match existingAnimals by class and species
         $this->animals = $this->filterAllowedAnimals($this->animals, $this->existingAnimals);
     }
->>>>>>> Stashed changes
 
     public function hearAllSounds(): void
     {

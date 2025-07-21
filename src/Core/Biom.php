@@ -2,15 +2,15 @@
 
 namespace Jungle\Core;
 
+use Jungle\Enums\AnimalClass;
+
 abstract class Biom
 {
-<<<<<<< Updated upstream
-=======
+
     protected string $name;
     protected array $animals = [];
     protected array $existingAnimals = [];
 
->>>>>>> Stashed changes
     abstract public function hearAllSounds(): void;
     
 
@@ -18,9 +18,6 @@ abstract class Biom
 
 
     abstract public function watchAnimalMovement(): void;
-
-<<<<<<< Updated upstream
-=======
        final public function getName(): string
     {
         return $this->name;
@@ -47,6 +44,7 @@ abstract class Biom
             }
         }
     }
+
 
     public function getAllAnimals()
     {
@@ -77,5 +75,3 @@ abstract class Biom
         return $filtered;
     }
 
->>>>>>> Stashed changes
-}

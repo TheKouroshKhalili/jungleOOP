@@ -10,20 +10,20 @@ use Jungle\Core\Biom;
 
 class Desert extends Biom
 {
-<<<<<<< Updated upstream
-=======
+
 
     protected string $name = 'Desert';
     protected array $existingAnimals = [];
->>>>>>> Stashed changes
+
     /**
      * @param Animal[] $animals
      */
     public function __construct(
-<<<<<<< Updated upstream
-        private array $animals = [],
+
+        protected array $animals = [],
+
     ) {}
-=======
+
         protected array $animals = [],
     ) {
         $this->existingAnimals = [
@@ -35,7 +35,6 @@ class Desert extends Biom
 
         $this->animals = $this->filterAllowedAnimals($this->animals, $this->existingAnimals);
     }
->>>>>>> Stashed changes
 
     public function hearAllSounds(): void
     {
