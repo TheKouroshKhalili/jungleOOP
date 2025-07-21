@@ -6,8 +6,11 @@ use Jungle\Enums\AnimalClass;
 
 abstract class Biom
 {
+
     protected string $name;
     protected array $animals = [];
+    protected array $existingAnimals = [];
+
     abstract public function hearAllSounds(): void;
     
 
@@ -15,7 +18,6 @@ abstract class Biom
 
 
     abstract public function watchAnimalMovement(): void;
-
        final public function getName(): string
     {
         return $this->name;
@@ -43,4 +45,33 @@ abstract class Biom
         }
     }
 
-}
+
+    public function getAllAnimals()
+    {
+        $animalList = [];
+        foreach ($this->animals as $animal) {
+                $animalList[] = $animal;
+        }
+        return $animalList;
+    }
+
+    /**
+     * Filters input animals to only those allowed in the biome (by class and species).
+     * @param array $inputAnimals
+     * @param array $allowedAnimals
+     * @return array
+     */
+    protected function filterAllowedAnimals(array $inputAnimals, array $allowedAnimals): array
+    {
+        $filtered = [];
+        foreach ($inputAnimals as $animal) {
+            foreach ($allowedAnimals as $allowed) {
+                if (get_class($animal) === get_class($allowed) && $animal->getSpecies() === $allowed->getSpecies()) {
+                    $filtered[] = $animal;
+                    break;
+                }
+            }
+        }
+        return $filtered;
+    }
+
