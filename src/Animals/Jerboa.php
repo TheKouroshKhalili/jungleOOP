@@ -30,7 +30,7 @@ class Jerboa extends Animal implements \Jungle\Interfaces\desertFriendly
 
     public function getSpecies(): string
     {
-        return 'Jaculus';
+        return 'jerboa';
     }
 
     public function move(): string

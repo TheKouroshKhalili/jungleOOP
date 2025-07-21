@@ -30,7 +30,7 @@ class Sparrow extends Animal implements \Jungle\Interfaces\forestFriendly
 
     public function getSpecies(): string
     {
-        return 'Bird-like';
+        return 'Sparrow';
     }
 
     public function move(): string

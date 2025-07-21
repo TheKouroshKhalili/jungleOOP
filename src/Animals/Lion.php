@@ -32,7 +32,7 @@ class Lion extends Animal implements \Jungle\Interfaces\forestFriendly
 
     public function getSpecies(): string
     {
-        return 'Felines';
+        return 'lion';
     }
 
     public function move(): string

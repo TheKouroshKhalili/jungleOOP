@@ -2,6 +2,7 @@
 
 namespace Jungle\Core;
 
+use Exception;
 use Jungle\Animals\{
     Bee, Eagle, Elephant, Frog, GoldFish, Lion, Snake, Sparrow, Spider,
     Octopus, Shark, Plankton, Camel, Scorpion, Jerboa
@@ -10,10 +11,16 @@ use Jungle\Core\Bioms\Forest;
 use Jungle\Core\Bioms\Desert;
 use Jungle\Core\Bioms\Ocean;
 use Jungle\Enums\AnimalClass;
+use Jungle\Enums\Biom;
+use Jungle\Interfaces\DesertFriendly;
+use Jungle\Interfaces\oceanFriendly;
+use Jungle\Interfaces\ForestFriendly;
+use Jungle\Traits\convertToFriendly;
+
 class ZOO
 {
 
-
+    use convertToFriendly;
     protected Forest $forest;
     protected Desert $desert;
     protected Ocean $ocean;
@@ -27,6 +34,8 @@ private function addAnimal() {
 
         $this->forest = new Forest([
             $this->putAnimalInForestCage(new Lion('Simba', 5)),
+            $this->putAnimalInForestCage(new Lion('sara', 4)),
+            $this->putAnimalInForestCage(new Lion('sony', 1)),
             $this->putAnimalInForestCage(new Elephant('Dumbo', 10)),
             $this->putAnimalInForestCage(new Eagle('Sky', 4)),
         ]);
@@ -34,6 +43,7 @@ private function addAnimal() {
         $this->desert = new Desert([
             $this->putAnimalInDesertCage(new Snake('Sandy', 3)),
             $this->putAnimalInDesertCage(new Camel('Cammie', 7)),
+            $this->putAnimalInDesertCage(new Camel('rony', 2)),
             $this->putAnimalInDesertCage(new Jerboa('Jump', 1))
         ]);
 
@@ -49,12 +59,13 @@ private function addAnimal() {
     public static function visitTheZoo() {
         echo "Visiting the zoo...\n";
         $zoo = new ZOO();
-        
+
         $zoo->getAllAnimals();
         $zoo->listAllAnimals(AnimalClass::MAMMAL);
         $zoo->countAllAnimalsByClass();
         $zoo->oldestAnimal();
-       
+        $zoo->animalsListByBiom(Biom::FOREST);
+        $zoo->countAllAnimalsBySpecies();
         $zoo->forest->listAllAnimals();
         $zoo->forest->listAllAdultAnimals();
         $zoo->forest->hearAllSounds();
@@ -159,9 +170,46 @@ private function addAnimal() {
                 echo "Second oldest animal: " . $oldest2->getName() . " (" . $oldest2->getSpecies() . "), Age: " . $oldest2->getAge() . PHP_EOL;
             }
             if ($oldest3 !== null) {
-                echo "Third oldest animal: " . $oldest3->getName() . " (" . $oldest3->getSpecies() . "), Age: " . $oldest3->getAge() . PHP_EOL;
+                echo "Third oldest animal: " . $oldest3->getName() . " (" . $oldest3->getSpecies() . "), Age: " . $oldest3->getAge() . PHP_EOL .  PHP_EOL;
             }
         }
     }
 
+
+    public function animalsListByBiom(\Jungle\Enums\Biom $biom){
+        echo 'animals List By Biom ' . $biom->value . PHP_EOL;
+        $class = $this->convert($biom);
+        $filtered = [];
+        foreach ($this->animals as $animal) {
+            if ($animal instanceof $class) {
+                echo $animal . PHP_EOL;
+            }
+            
+        }
+        
+    }
+       public function countAllAnimalsBySpecies()
+    {
+        
+            $speciesCount = [];
+            foreach ($this->animals as $animal) {
+                $species = $animal->getSpecies();
+                if (!array_key_exists($species, $speciesCount)) {
+                $speciesCount[$species] = 0;
+                }
+            }
+            
+
+        echo PHP_EOL . "-- Counting all animals in the zoo by species --" . PHP_EOL;
+        foreach ($speciesCount as $key => $value) {
+            foreach ($this->animals as $animal) {
+                if ($animal->getSpecies() === $key) {
+                    $speciesCount[$key]++;
+                }
+            }
+        }
+        foreach ($speciesCount as $key => $value) {
+            echo "Total " . $key . "s: " . $value . PHP_EOL;
+        }
+    }
 }
