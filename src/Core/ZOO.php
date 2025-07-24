@@ -66,6 +66,7 @@ private function addAnimal() {
         $zoo->oldestAnimal();
         $zoo->animalsListByBiom(Biom::FOREST);
         $zoo->countAllAnimalsBySpecies();
+        $zoo->BiomsAnimalClass();
         $zoo->forest->listAllAnimals();
         $zoo->forest->listAllAdultAnimals();
         $zoo->forest->hearAllSounds();
@@ -210,6 +211,38 @@ private function addAnimal() {
         }
         foreach ($speciesCount as $key => $value) {
             echo "Total " . $key . "s: " . $value . PHP_EOL;
+        }
+    }
+    public function BiomsAnimalClass (){
+        $bioms = [
+            'Desert' => [],
+            'Forest' => [],
+            'Ocean' => [],
+        ];
+        $forestAnimals = $this->forest->getAllAnimals();
+        $desertAnimals = $this->desert->getAllAnimals();
+        $oceanAnimals  = $this->ocean->getAllAnimals();
+        foreach ($forestAnimals as $forestAnimal) {
+            $class = $forestAnimal->getAnimalClass();
+            if (!in_array($class, $bioms['Forest'])) {
+                $bioms['Forest'][] = $class;
+            }
+        }
+        foreach ($desertAnimals as $desertAnimal) {
+            $class = $desertAnimal->getAnimalClass();
+            if (!in_array($class, $bioms['Desert'])) {
+                $bioms['Desert'][] = $class;
+            }
+        }
+        foreach ($oceanAnimals as $oceanAnimal) {
+            $class = $oceanAnimal->getAnimalClass();
+            if (!in_array($class, $bioms['Ocean'])) {
+                $bioms['Ocean'][] = $class;
+            }
+        }
+
+        foreach ($bioms as $key => $value) {
+            echo "animalClasses in " . $key . " are: [" . implode(", ", $value) . "]" . PHP_EOL;
         }
     }
 }
